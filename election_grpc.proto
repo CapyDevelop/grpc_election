@@ -1,0 +1,13 @@
+syntax = 'proto3';
+
+package election_grpc;
+
+service ElectionService {
+  rpc GetElection (Empty) returns (GetElectionResponse) {}
+}
+
+message Empty {}
+
+message GetElectionResponse {
+  int32 status = 1;
+}
