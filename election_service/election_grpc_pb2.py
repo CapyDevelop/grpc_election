@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x65lection_grpc.proto\x12\relection_grpc\"\x07\n\x05\x45mpty\"%\n\x13GetElectionResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x32\\\n\x0f\x45lectionService\x12I\n\x0bGetElection\x12\x14.election_grpc.Empty\x1a\".election_grpc.GetElectionResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x65lection_grpc.proto\x12\relection_grpc\"\x07\n\x05\x45mpty\"%\n\x13GetElectionResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\"2\n\x13SetCandidateRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05\x61\x62out\x18\x02 \x01(\t\";\n\x14SetCandidateResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2\x99\x02\n\x0f\x45lectionService\x12I\n\x0bGetElection\x12\x14.election_grpc.Empty\x1a\".election_grpc.GetElectionResponse\"\x00\x12\\\n\x0fSetCandidateTmp\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x12]\n\x10SetCandidateCapy\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,6 +25,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_EMPTY']._serialized_end=45
   _globals['_GETELECTIONRESPONSE']._serialized_start=47
   _globals['_GETELECTIONRESPONSE']._serialized_end=84
-  _globals['_ELECTIONSERVICE']._serialized_start=86
-  _globals['_ELECTIONSERVICE']._serialized_end=178
+  _globals['_SETCANDIDATEREQUEST']._serialized_start=86
+  _globals['_SETCANDIDATEREQUEST']._serialized_end=136
+  _globals['_SETCANDIDATERESPONSE']._serialized_start=138
+  _globals['_SETCANDIDATERESPONSE']._serialized_end=197
+  _globals['_ELECTIONSERVICE']._serialized_start=200
+  _globals['_ELECTIONSERVICE']._serialized_end=481
 # @@protoc_insertion_point(module_scope)

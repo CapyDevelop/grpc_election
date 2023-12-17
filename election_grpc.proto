@@ -4,10 +4,22 @@ package election_grpc;
 
 service ElectionService {
   rpc GetElection (Empty) returns (GetElectionResponse) {}
+  rpc SetCandidateTmp (SetCandidateRequest) returns (SetCandidateResponse) {}
+  rpc SetCandidateCapy (SetCandidateRequest) returns (SetCandidateResponse) {}
 }
 
 message Empty {}
 
 message GetElectionResponse {
   int32 status = 1;
+}
+
+message SetCandidateRequest {
+  string uuid = 1;
+  string about = 2;
+}
+
+message SetCandidateResponse {
+  int32 status = 1;
+  string description = 2;
 }
