@@ -6,6 +6,8 @@ service ElectionService {
   rpc GetElection (Empty) returns (GetElectionResponse) {}
   rpc SetCandidateTmp (SetCandidateRequest) returns (SetCandidateResponse) {}
   rpc SetCandidateCapy (SetCandidateRequest) returns (SetCandidateResponse) {}
+  rpc CheckCandidateTmp (CheckCandidateRequest) returns (CheckCandidateResponse) {}
+  rpc CheckCandidateCapy (CheckCandidateRequest) returns (CheckCandidateResponse) {}
 }
 
 message Empty {}
@@ -20,6 +22,15 @@ message SetCandidateRequest {
 }
 
 message SetCandidateResponse {
+  int32 status = 1;
+  string description = 2;
+}
+
+message CheckCandidateRequest {
+  string uuid = 1;
+}
+
+message CheckCandidateResponse {
   int32 status = 1;
   string description = 2;
 }
