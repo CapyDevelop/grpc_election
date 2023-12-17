@@ -8,6 +8,7 @@ service ElectionService {
   rpc SetCandidateCapy (SetCandidateRequest) returns (SetCandidateResponse) {}
   rpc CheckCandidateTmp (CheckCandidateRequest) returns (CheckCandidateResponse) {}
   rpc CheckCandidateCapy (CheckCandidateRequest) returns (CheckCandidateResponse) {}
+  rpc SendPassword (SendPasswordRequest) returns (SendPasswordResponse) {}
 }
 
 message Empty {}
@@ -31,6 +32,16 @@ message CheckCandidateRequest {
 }
 
 message CheckCandidateResponse {
+  int32 status = 1;
+  string description = 2;
+}
+
+message SendPasswordRequest {
+  string password = 1;
+  string mail = 2;
+}
+
+message SendPasswordResponse {
   int32 status = 1;
   string description = 2;
 }

@@ -39,6 +39,11 @@ class ElectionServiceStub(object):
                 request_serializer=election__grpc__pb2.CheckCandidateRequest.SerializeToString,
                 response_deserializer=election__grpc__pb2.CheckCandidateResponse.FromString,
                 )
+        self.SendPassword = channel.unary_unary(
+                '/election_grpc.ElectionService/SendPassword',
+                request_serializer=election__grpc__pb2.SendPasswordRequest.SerializeToString,
+                response_deserializer=election__grpc__pb2.SendPasswordResponse.FromString,
+                )
 
 
 class ElectionServiceServicer(object):
@@ -74,6 +79,12 @@ class ElectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SendPassword(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ElectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +112,11 @@ def add_ElectionServiceServicer_to_server(servicer, server):
                     servicer.CheckCandidateCapy,
                     request_deserializer=election__grpc__pb2.CheckCandidateRequest.FromString,
                     response_serializer=election__grpc__pb2.CheckCandidateResponse.SerializeToString,
+            ),
+            'SendPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendPassword,
+                    request_deserializer=election__grpc__pb2.SendPasswordRequest.FromString,
+                    response_serializer=election__grpc__pb2.SendPasswordResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,5 +210,22 @@ class ElectionService(object):
         return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/CheckCandidateCapy',
             election__grpc__pb2.CheckCandidateRequest.SerializeToString,
             election__grpc__pb2.CheckCandidateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/SendPassword',
+            election__grpc__pb2.SendPasswordRequest.SerializeToString,
+            election__grpc__pb2.SendPasswordResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

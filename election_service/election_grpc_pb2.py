@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x65lection_grpc.proto\x12\relection_grpc\"\x07\n\x05\x45mpty\"%\n\x13GetElectionResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\"2\n\x13SetCandidateRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05\x61\x62out\x18\x02 \x01(\t\";\n\x14SetCandidateResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"%\n\x15\x43heckCandidateRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"=\n\x16\x43heckCandidateResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2\xe2\x03\n\x0f\x45lectionService\x12I\n\x0bGetElection\x12\x14.election_grpc.Empty\x1a\".election_grpc.GetElectionResponse\"\x00\x12\\\n\x0fSetCandidateTmp\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x12]\n\x10SetCandidateCapy\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x12\x62\n\x11\x43heckCandidateTmp\x12$.election_grpc.CheckCandidateRequest\x1a%.election_grpc.CheckCandidateResponse\"\x00\x12\x63\n\x12\x43heckCandidateCapy\x12$.election_grpc.CheckCandidateRequest\x1a%.election_grpc.CheckCandidateResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x65lection_grpc.proto\x12\relection_grpc\"\x07\n\x05\x45mpty\"%\n\x13GetElectionResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\"2\n\x13SetCandidateRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05\x61\x62out\x18\x02 \x01(\t\";\n\x14SetCandidateResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"%\n\x15\x43heckCandidateRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"=\n\x16\x43heckCandidateResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"5\n\x13SendPasswordRequest\x12\x10\n\x08password\x18\x01 \x01(\t\x12\x0c\n\x04mail\x18\x02 \x01(\t\";\n\x14SendPasswordResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2\xbd\x04\n\x0f\x45lectionService\x12I\n\x0bGetElection\x12\x14.election_grpc.Empty\x1a\".election_grpc.GetElectionResponse\"\x00\x12\\\n\x0fSetCandidateTmp\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x12]\n\x10SetCandidateCapy\x12\".election_grpc.SetCandidateRequest\x1a#.election_grpc.SetCandidateResponse\"\x00\x12\x62\n\x11\x43heckCandidateTmp\x12$.election_grpc.CheckCandidateRequest\x1a%.election_grpc.CheckCandidateResponse\"\x00\x12\x63\n\x12\x43heckCandidateCapy\x12$.election_grpc.CheckCandidateRequest\x1a%.election_grpc.CheckCandidateResponse\"\x00\x12Y\n\x0cSendPassword\x12\".election_grpc.SendPasswordRequest\x1a#.election_grpc.SendPasswordResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_CHECKCANDIDATEREQUEST']._serialized_end=236
   _globals['_CHECKCANDIDATERESPONSE']._serialized_start=238
   _globals['_CHECKCANDIDATERESPONSE']._serialized_end=299
-  _globals['_ELECTIONSERVICE']._serialized_start=302
-  _globals['_ELECTIONSERVICE']._serialized_end=784
+  _globals['_SENDPASSWORDREQUEST']._serialized_start=301
+  _globals['_SENDPASSWORDREQUEST']._serialized_end=354
+  _globals['_SENDPASSWORDRESPONSE']._serialized_start=356
+  _globals['_SENDPASSWORDRESPONSE']._serialized_end=415
+  _globals['_ELECTIONSERVICE']._serialized_start=418
+  _globals['_ELECTIONSERVICE']._serialized_end=991
 # @@protoc_insertion_point(module_scope)
