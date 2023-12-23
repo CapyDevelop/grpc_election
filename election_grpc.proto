@@ -68,4 +68,6 @@ message Candidate {
 
 message GetCandidatesResponse {
   repeated Candidate candidates = 1;
+  int32 status = 2;
+  string description = 3;
 }
