@@ -54,6 +54,26 @@ class ElectionServiceStub(object):
                 request_serializer=election__grpc__pb2.Empty.SerializeToString,
                 response_deserializer=election__grpc__pb2.GetCandidatesResponse.FromString,
                 )
+        self.VoteTmp = channel.unary_unary(
+                '/election_grpc.ElectionService/VoteTmp',
+                request_serializer=election__grpc__pb2.VoteRequest.SerializeToString,
+                response_deserializer=election__grpc__pb2.VoteResponse.FromString,
+                )
+        self.VoteCapy = channel.unary_unary(
+                '/election_grpc.ElectionService/VoteCapy',
+                request_serializer=election__grpc__pb2.VoteRequest.SerializeToString,
+                response_deserializer=election__grpc__pb2.VoteResponse.FromString,
+                )
+        self.MyCandidatesTmp = channel.unary_unary(
+                '/election_grpc.ElectionService/MyCandidatesTmp',
+                request_serializer=election__grpc__pb2.MyCandidateRequest.SerializeToString,
+                response_deserializer=election__grpc__pb2.MyCandidateResponse.FromString,
+                )
+        self.MyCandidatesCapy = channel.unary_unary(
+                '/election_grpc.ElectionService/MyCandidatesCapy',
+                request_serializer=election__grpc__pb2.MyCandidateRequest.SerializeToString,
+                response_deserializer=election__grpc__pb2.MyCandidateResponse.FromString,
+                )
 
 
 class ElectionServiceServicer(object):
@@ -107,6 +127,30 @@ class ElectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def VoteTmp(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def VoteCapy(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MyCandidatesTmp(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MyCandidatesCapy(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ElectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -149,6 +193,26 @@ def add_ElectionServiceServicer_to_server(servicer, server):
                     servicer.GetCandidates,
                     request_deserializer=election__grpc__pb2.Empty.FromString,
                     response_serializer=election__grpc__pb2.GetCandidatesResponse.SerializeToString,
+            ),
+            'VoteTmp': grpc.unary_unary_rpc_method_handler(
+                    servicer.VoteTmp,
+                    request_deserializer=election__grpc__pb2.VoteRequest.FromString,
+                    response_serializer=election__grpc__pb2.VoteResponse.SerializeToString,
+            ),
+            'VoteCapy': grpc.unary_unary_rpc_method_handler(
+                    servicer.VoteCapy,
+                    request_deserializer=election__grpc__pb2.VoteRequest.FromString,
+                    response_serializer=election__grpc__pb2.VoteResponse.SerializeToString,
+            ),
+            'MyCandidatesTmp': grpc.unary_unary_rpc_method_handler(
+                    servicer.MyCandidatesTmp,
+                    request_deserializer=election__grpc__pb2.MyCandidateRequest.FromString,
+                    response_serializer=election__grpc__pb2.MyCandidateResponse.SerializeToString,
+            ),
+            'MyCandidatesCapy': grpc.unary_unary_rpc_method_handler(
+                    servicer.MyCandidatesCapy,
+                    request_deserializer=election__grpc__pb2.MyCandidateRequest.FromString,
+                    response_serializer=election__grpc__pb2.MyCandidateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -293,5 +357,73 @@ class ElectionService(object):
         return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/GetCandidates',
             election__grpc__pb2.Empty.SerializeToString,
             election__grpc__pb2.GetCandidatesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def VoteTmp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/VoteTmp',
+            election__grpc__pb2.VoteRequest.SerializeToString,
+            election__grpc__pb2.VoteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def VoteCapy(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/VoteCapy',
+            election__grpc__pb2.VoteRequest.SerializeToString,
+            election__grpc__pb2.VoteResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MyCandidatesTmp(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/MyCandidatesTmp',
+            election__grpc__pb2.MyCandidateRequest.SerializeToString,
+            election__grpc__pb2.MyCandidateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MyCandidatesCapy(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/MyCandidatesCapy',
+            election__grpc__pb2.MyCandidateRequest.SerializeToString,
+            election__grpc__pb2.MyCandidateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

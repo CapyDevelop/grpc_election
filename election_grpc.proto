@@ -11,6 +11,10 @@ service ElectionService {
   rpc SendPassword (SendPasswordRequest) returns (SendPasswordResponse) {}
   rpc ConfirmPassword (ConfirmPasswordRequest) returns (ConfirmPasswordResponse) {}
   rpc GetCandidates (Empty) returns (GetCandidatesResponse) {}
+  rpc VoteTmp (VoteRequest) returns (VoteResponse) {}
+  rpc VoteCapy (VoteRequest) returns (VoteResponse) {}
+  rpc MyCandidatesTmp (MyCandidateRequest) returns (MyCandidateResponse) {}
+  rpc MyCandidatesCapy (MyCandidateRequest) returns (MyCandidateResponse) {}
 }
 
 message Empty {}
@@ -70,4 +74,28 @@ message GetCandidatesResponse {
   repeated Candidate candidates = 1;
   int32 status = 2;
   string description = 3;
+}
+
+
+
+message VoteRequest {
+  string uuid = 1;
+  int32 candidate_id = 2;
+}
+
+message VoteResponse {
+  int32 status = 1;
+  string description = 2;
+}
+
+
+message MyCandidateRequest {
+  string uuid = 1;
+}
+
+message MyCandidateResponse {
+  repeated Candidate candidates = 1;
+  int32 count = 2;
+  int32 status = 3;
+  string description = 4;
 }
