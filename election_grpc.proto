@@ -15,6 +15,7 @@ service ElectionService {
   rpc VoteCapy (VoteRequest) returns (VoteResponse) {}
   rpc MyCandidatesTmp (MyCandidateRequest) returns (MyCandidateResponse) {}
   rpc MyCandidatesCapy (MyCandidateRequest) returns (MyCandidateResponse) {}
+  rpc GetStatistic (Empty) returns (GetStatisticResponse) {}
 }
 
 message Empty {}
@@ -98,4 +99,17 @@ message MyCandidateResponse {
   int32 count = 2;
   int32 status = 3;
   string description = 4;
+}
+
+message CandidateStat {
+  string nickname = 1;
+  int32 count = 2;
+  float percent = 3;
+}
+
+message GetStatisticResponse {
+  repeated CandidateStat candidates = 1;
+  int32 all_capybaras = 2;
+  int32 count_voter = 3;
+  float percent_voter = 4;
 }

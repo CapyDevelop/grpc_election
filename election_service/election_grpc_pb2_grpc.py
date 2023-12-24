@@ -74,6 +74,11 @@ class ElectionServiceStub(object):
                 request_serializer=election__grpc__pb2.MyCandidateRequest.SerializeToString,
                 response_deserializer=election__grpc__pb2.MyCandidateResponse.FromString,
                 )
+        self.GetStatistic = channel.unary_unary(
+                '/election_grpc.ElectionService/GetStatistic',
+                request_serializer=election__grpc__pb2.Empty.SerializeToString,
+                response_deserializer=election__grpc__pb2.GetStatisticResponse.FromString,
+                )
 
 
 class ElectionServiceServicer(object):
@@ -151,6 +156,12 @@ class ElectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetStatistic(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ElectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -213,6 +224,11 @@ def add_ElectionServiceServicer_to_server(servicer, server):
                     servicer.MyCandidatesCapy,
                     request_deserializer=election__grpc__pb2.MyCandidateRequest.FromString,
                     response_serializer=election__grpc__pb2.MyCandidateResponse.SerializeToString,
+            ),
+            'GetStatistic': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetStatistic,
+                    request_deserializer=election__grpc__pb2.Empty.FromString,
+                    response_serializer=election__grpc__pb2.GetStatisticResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -425,5 +441,22 @@ class ElectionService(object):
         return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/MyCandidatesCapy',
             election__grpc__pb2.MyCandidateRequest.SerializeToString,
             election__grpc__pb2.MyCandidateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetStatistic(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/election_grpc.ElectionService/GetStatistic',
+            election__grpc__pb2.Empty.SerializeToString,
+            election__grpc__pb2.GetStatisticResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
